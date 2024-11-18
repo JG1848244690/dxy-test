@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./fonts/iconfont.css">
+  <style>
+    .container1 {}
+
+    /* 图标 */
+    .iconfont {
+      font-family: "iconfont" !important;
+      font-size: 10px;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* 鼠标悬浮时字体变白色 */
+    .headLeft ul a:hover,
+    .headRight ul a:hover {
+      color: white;
+    }
+
+    .header {
+      display: flex;
+      height: 25px;
+      justify-content: space-between;
+      font-size: 7px;
+      color: rgb(176, 176, 148);
+      background-color: rgb(51, 51, 51);
+    }
+
+    /* 顶部左侧 */
+    .headLeft {
+      display: flex;
+      margin-left: 175px;
+      align-items: center;
+    }
+
+    .headLeft ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .headLeft ul a {
+      list-style: none;
+      margin: 0;
+      text-decoration: none;
+      color: rgb(176, 176, 148);
+    }
+
+    .headLeft ul li {
+      height: 25px;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* 顶部右侧 */
+    .headRight ul {
+      display: flex;
+      margin-right: 175px;
+    }
+
+    .headRight ul a {
+      height: 25px;
+      list-style: none;
+      margin: 0;
+      text-decoration: none;
+      color: rgb(176, 176, 148);
+    }
+
+    .headRight {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .headRight ul li {
+      padding: 6px;
+      display: flex;
+      align-items: center;
+    }
+
+    .headRight ul li a {
+      line-height: 25px;
+    }
+
+    .headRight span {
+      display: inline-block;
+      line-height: 25px;
+    }
+
+    .main {
+      margin: 0 auto;
+      background-color: #ffffff;
+      width: 70%;
+
+    }
+
+    /* 搜索框 */
+    .search-form {
+      display: flex;
+      align-items: center;
+
+    }
+
+    .search-input {
+      width: 90px;
+      height: 25px;
+      padding: 4px;
+      border: 1px solid #ccc;
+
+      outline: none;
+      font-size: 12px;
+    }
+
+    .search-button {
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      border-left: none;
+
+      cursor: pointer;
+      padding: 0 10px;
+    }
+
+    .search-button .iconfont {
+      font-size: 14px;
+    }
+
+    /* wrapper区域的导航标签选项卡 */
+    .header2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+
+    }
+
+    .header2Left {
+      display: flex;
+      padding: 20px;
+    }
+
+    .header2Left div {
+      font-size: 15px;
+      padding: 5px;
+      font-weight: 100;
+    }
+
+    .header2Right {
+      display: flex;
+      padding: 20px;
+    }
+
+    .header2Left div:hover {
+      color: rgb(255, 103, 0);
+    }
+
+    /* banner区域 */
+    .banner {
+      width: 100%;
+
+      position: relative;
+    }
+
+    .banner img {
+      width: 100%;
+
+    }
+
+    .slider-images {
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* 轮播图左边选择区域 */
+
+    .tab {
+      height: 286px;
+      width: 150px;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.2);
+      left: 0;
+      top: 0;
+
+    }
+
+    .tab div {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      height: 286px;
+      font-size: 10px;
+      border-bottom: 1px solid #000;
+      height: 10%;
+      padding-left: 20px;
+
+    }
+
+    .tab div:hover {
+      background-color: orange;
+    }
+
+    .tabBox {
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      height: 286px;
+      width: 300px;
+      position: absolute;
+      top: 0;
+      left: 150px;
+      background-color: #fff;
+      visibility: hidden;
+    }
+
+    .tabBox div {
+      width: 130px;
+      height: 50px;
+      background-color: pink;
+      display: flex;
+      font-size: 10px;
+      justify-content: center;
+
+
+      align-items: center;
+    }
+
+    .tabBox div img {
+      width: 30%;
+    }
+
+    /* 按钮样式 */
+    .slider-button {
+      height: 30px;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* 半透明黑色背景 */
+      color: white;
+      border: none;
+      cursor: pointer;
+
+    }
+
+    .prev {
+      position: absolute;
+      top: 50%;
+      right: 590px;
+    }
+
+    .next {
+      position: absolute;
+      top: 50%;
+      right: 0;
+    }
+
+    /* banner下面的一行 */
+    .bannerBottom {
+      margin-top: 20px;
+      display: flex;
+
+    }
+
+    .select6Left {
+
+      display: flex;
+      width: 150px;
+      flex-wrap: wrap;
+      background-color: rgb(95, 87, 80);
+      height: 120px;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .select6Left div {
+      width: 30%;
+      padding: 5px;
+      font-size: 8px;
+      color: #a0a0a0;
+    }
+
+    .select6Left div:hover {
+      color: #fff;
+    }
+
+    .select6Right {
+      display: flex;
+      background-color: #fff;
+    }
+
+    .select6Right div {
+      width: 204px;
+      padding: 5px;
+
+    }
+
+    .select6Right div img {
+      width: 100%;
+    }
+
+    /* 手机部分上面的图片 */
+    .Pic img {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .tableTemp {
+      margin-top: 20px;
+      background-color: #fff;
+    }
+
+    .tableHead {
+      display: flex;
+      height: 35px;
+      justify-content: space-between;
+      align-items: center;
+
+    }
+
+    .tableHead div {
+      font-weight: 100;
+    }
+
+    .tableBody {
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+    }
+
+    .tbl {
+      width: 100%;
+
+    }
+
+    .tbl img {
+      width: 100%;
+
+    }
+
+    .tbr {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 5;
+      background-color: rgb(245, 245, 245);
+    }
+
+    .tbr div {
+
+      height: 114px;
+      height: 95%;
+      margin: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #fff;
+    }
+
+    .tbr img {
+      width: 60%;
+    }
+
+    .tbr h2 {
+      font-size: 10px;
+      margin-bottom: 10px;
+    }
+
+    .desc {
+      font-size: 8px;
+      color: #504d4d;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 9px;
+      color: orange
+    }
+
+    .footImg {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .footImg img {
+      width: 100%;
+
+    }
+
+    .footHead {
+      display: flex;
+      padding: 15px;
+      justify-content: space-between;
+      font-size: small;
+      border-bottom: #616161 1px solid;
+    }
+
+    .footHead div a {
+      color: #616161;
+    }
+
+    .footHead .iconfont {
+      font-size: small;
+      margin-right: 5px;
+    }
+
+    .footBottom {
+      width: 100%;
+      height: 300px;
+      background-color: #fff;
+      display: flex;
+
+    }
+
+    .footBottom div {
+
+      width: 15%;
+      font-size: 10px;
+      margin: 0 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+    }
+
+    .footBottom div h2 {
+      font-size: 10px;
+      margin-bottom: 5px;
+      margin-top: 20px;
+    }
+
+    .footBottom div p {
+      font-size: 8px;
+      font-weight: 200;
+      margin: 10px 0;
+    }
+
+    .footBottom div p:hover {
+      color: orange
+    }
+
+    .footBottom div:last-child {
+      background-color: white;
+    }
+
+    .number {
+      font-size: 15px !important;
+      color: orange !important;
+    }
+
+    .kefu {
+      font-size: 10px !important;
+      color: orange !important;
+      border: orange 1px solid;
+      padding: 5px;
+    }
+
+    .footBottom div:last-child {
+      border-left: #000 1px solid;
+    }
+
+    .footBanQuan {
+      margin-top: 20px;
+    }
+
+    .footBanQuan p {
+      font-size: 8px;
+      color: #797676;
+    }
+
+    .rightNav {
+
+      height: 320px;
+      width: 50px;
+      position: fixed;
+      right: 0;
+      top: 100px;
+
+      box-shadow: #ccc 1px 1px 5px;
+
+    }
+
+    .rightNav div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      width: 50px;
+      font-size: 10px;
+      font-weight: 200;
+      border-top: 1px solid #ccc;
+    }
+
+    .rightNav div:hover {
+      color: orange;
+      cursor: pointer;
+    }
+
+    .rightNav div:last-child {
+
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+    }
+
+    .head3Right {
+      width: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .head3Right div:hover {
+      border-bottom: orange 2px solid;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="container1">
+    <div class="header">
+      <div class="headLeft">
+        <ul>
+          <li><a href="#">小米官网</a></li>
+          <li><a href="#">小米商城</a></li>
+          <li><a href="#">小米澎湃os</a></li>
+          <li><a href="#">小米汽车</a></li>
+          <li><a href="#">云服务</a></li>
+          <li><a href="#">loT</a></li>
+          <li><a href="#">有品</a></li>
+          <li><a href="#">小爱开放平台</a></li>
+          <li><a href="#">资质证照</a></li>
+          <li><a href="#">协议规则</a></li>
+          <li><a href="#">下载app</a></li>
+          <li><a href="#">SelectLocation</a></li>
+
+        </ul>
+      </div>
+      <div class="headRight">
+        <ul>
+          <li><a href="#">登录</a></li>
+          <li><a href="#">注册</a></li>
+          <li><a href="#">消息通知</a></li>
+          <li>
+            <a href="#">
+              <div>
+                <span class="iconfont icon-gouwuche"></span>
+                <span>购物车</span>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    <!-- wrapper区域 -->
+    <div class="main">
+
+      <div class="header2">
+        <div class="header2Left">
+          <div>Xiaomi手机</div>
+          <div>Redmi手机</div>
+          <div>电视</div>
+          <div>笔记本</div>
+          <div>平板</div>
+          <div>家电</div>
+          <div>路由器</div>
+          <div>服务中心</div>
+          <div>社区</div>
+        </div>
+        <div class="header2Right">
+          <form class="search-form" action="#" method="get">
+            <input type="text" class="search-input" placeholder="xiaomi手环9">
+            <button type="submit" class="search-button">
+              <span class="iconfont icon-sousuo"></span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+      <div class="banner">
+        <div class="slider-images">
+          <img
+            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/397f2569b126d8fba446b6bbf57ef771.jpg?thumb=1&w=1226&h=460&f=webp&q=90"
+            alt="Image 1">
+          <img
+            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/dd6c50e9af7e61eafbfd2a4977f5a268.jpg?thumb=1&w=1226&h=460&f=webp&q=90"
+            alt="Image 2">
+          <img
+            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/dd6c50e9af7e61eafbfd2a4977f5a268.jpg?thumb=1&w=1226&h=460&f=webp&q=90"
+            alt="Image 2">
+          <img
+            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/dd6c50e9af7e61eafbfd2a4977f5a268.jpg?thumb=1&w=1226&h=460&f=webp&q=90"
+            alt="Image 2">
+          <img
+            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/dd6c50e9af7e61eafbfd2a4977f5a268.jpg?thumb=1&w=1226&h=460&f=webp&q=90"
+            alt="Image 2">
+
+        </div>
+        <!-- tabBox -->
+        <div class="tabBox">
+          <div><img
+              src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5c57d3a5e8a2fde79bcffce9d5344c80.png?thumb=1&w=44&h=44&f=webp&q=90"
+              alt="">
+            <div>小米MIX X系列</div>
+          </div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+        </div>
+
+        <div class="slider-buttons">
+          <button class="slider-button prev">&lt;</button>
+          <button class="slider-button next">&gt;</button>
+        </div>
+        <div class="tab">
+          <div>手机</div>
+          <div>电视</div>
+          <div>家电</div>
+          <div>笔记本 平板 显示器</div>
+          <div>出行 穿戴</div>
+          <div>耳机 音响</div>
+          <div>健康 儿童</div>
+          <div>生活 箱包</div>
+          <div>智能 路由器</div>
+          <div>电源 配件</div>
+        </div>
+      </div>
+
+
+
+      <!-- 轮播图下的一行 -->
+      <div class="bannerBottom">
+        <div class="select6Left">
+          <div>保障服务</div>
+          <div>企业团购</div>
+          <div>F码通道</div>
+          <div>米粉卡</div>
+          <div>以旧换新</div>
+          <div>话费充值</div>
+        </div>
+        <div class="select6Right">
+          <div><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6b67117bc92924fb2ff0e7ad2be86084.png?w=632&h=340"
+              alt=""></div>
+          <div><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1ac77590368ff636d0b4f6a988133f55.png?w=632&h=340"
+              alt=""></div>
+          <div><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8dede2520f8dfff9c9b690af498cafe8.jpg?w=632&h=340"
+              alt=""></div>
+        </div>
+      </div>
+
+      <div class="Pic">
+        <img
+          src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/399a120a7aa1ca53a44f11ba010ad140.png?thumb=1&w=1226&h=120&f=webp&q=90"
+          alt="">
+      </div>
+
+      <div class="tableTemp">
+        <div class="tableHead">
+          <div class="head3Left">手机</div>
+          <div class="head3Right">查看更多 ></div>
+        </div>
+        <div class="tableBody">
+          <div class="tbl"><img
+              src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/dcf9ed8c01a7c3d0bf3ecbca3f22537c.png?thumb=1&w=234&h=614&f=webp&q=90"
+              alt=""></div>
+          <div class="tbr">
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tableTemp">
+        <div class="tableHead">
+          <div class="head3Left">智能穿戴</div>
+          <div class="head3Right">
+            <div class="erji">耳机</div>
+            <div class="chuandai">穿戴</div>
+          </div>
+        </div>
+        <div class="tableBody " id="tableBody1">
+          <div class="tbl">
+            <img
+              src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/dcf9ed8c01a7c3d0bf3ecbca3f22537c.png?thumb=1&w=234&h=614&f=webp&q=90"
+              alt=""
+              id="imgL1"></div>
+          <div class="tbr">
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+
+          </div>
+        </div>
+        <div class="tableBody " id="tableBody2">
+          <div class="tbl"><img
+              src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/dcf9ed8c01a7c3d0bf3ecbca3f22537c.png?thumb=1&w=234&h=614&f=webp&q=90"
+              alt=""
+              id="imgL2"></div>
+          <div class="tbr">
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版1</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+            <div>
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202407190938_6086b4a2d6895f3f00fe0cbd605239fa.png?thumb=1&w=200&h=200&f=webp&q=90"
+                alt="">
+              <h2>Redmi K70 至尊版</h2>
+              <p class="desc">性能魔王 全面进化</p>
+              <p class="price">2599元起</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="footImg">
+        <img
+          src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/88e35cffc82cd98cd53172460067af17.jpg?thumb=1&w=1226&h=120&f=webp&q=90"
+          alt="">
+      </div>
+
+      <div class="foot">
+        <div class="footHead">
+          <div><span class="iconfont icon-weixiufuwu"></span><a href="">预约维修服务</a></div>
+          <div><span class="iconfont icon-qitianwuliyoutuihuan"></span><a href="">七天无理由退货</a></div>
+          <div><span class="iconfont icon-15tian"></span><a href="">15天免费换货</a></div>
+          <div><span class="iconfont icon-lihe"></span><a href="">满69包邮</a></div>
+          <div><span class="iconfont icon-dingwei"></span><a href="">1100余家售后网点</a></div>
+        </div>
+        <div class="footBottom">
+          <div>
+            <h2>选购指南</h2>
+            <p>电视</p>
+            <p>笔记本</p>
+            <p>平板</p>
+            <p>穿戴</p>
+            <p>耳机</p>
+            <p>家电</p>
+            <p>路由器</p>
+            <p>音响</p>
+            <p>配件</p>
+
+          </div>
+
+
+          <div>
+            <h2>服务中心</h2>
+            <p>申请售后</p>
+            <p>售后政策</p>
+            <p>维修服务价格</p>
+            <p>订单查询</p>
+            <p>以旧换新</p>
+            <p>保障服务</p>
+            <p>防伪查询</p>
+            <p>F码通道</p>
+
+          </div>
+
+          <div>
+            <h2>线下门店</h2>
+            <p>小米之家</p>
+            <p>服务网点</p>
+            <p>授权体验店</p>
+
+
+          </div>
+          <div>
+            <h2>关于小米</h2>
+            <p>了解小米</p>
+            <p>加入小米</p>
+            <p>投资者关系</p>
+            <p>可持续发展</p>
+            <p>廉洁举报</p>
+
+          </div>
+          <div>
+            <h2>关注我们</h2>
+            <p>新浪微博</p>
+            <p>官方微信</p>
+            <p>联系我们</p>
+            <p>公益基金会</p>
+
+
+          </div>
+          <div>
+
+            <p class="footT">
+            <p class="number">400-100-5678</p>
+            <p class="time">8:00-22:00(仅收市话费)</p>
+            <p class="kefu">人工客服</p>
+            </p>
+            <p class="footB">
+            <p class="number">400-180-8888</p>
+            <p class="time">8:00-22:00(仅收市话费)</p>
+            <p class="time">适用于：MIX FOLD 电视系列</p>
+            <p class="kefu">人工客服</p>
+
+
+            </p>
+          </div>
+
+
+
+
+        </div>
+        <div class="footBanQuan">
+          <p>小米商城 | 小米澎湃OS | 米家 | 米聊 | 多看 | 游戏 | 音乐 | 政企服务 | 小米天猫店 | 小米集团隐私政策 | 小米公司儿童信息保护规则 | 小米商城隐私政策 | 小米商城用户协议 |
+            问题反馈 | Select Location
+
+            北京互联网法院法律服务工作站 | 中国消费者协会 | 北京市消费者协会</p>
+          <p>© mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2023]0169-004号
+            （京）网械平台备字（2018）第00005号 互联网药品信息服务资格证 (京)-非经营性-2014-0090 营业执照 医疗器械质量公告
+            增值电信业务经营许可证编号：京B2-20180851 网络食品经营备案 京食药网食备202010048 食品经营许可证 新出发京批字第直220280号
+            违法和不良信息举报电话：171-5104-4404 知识产权侵权投诉 本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</p>
+        </div>
+      </div>
+
+      <!-- 右侧导航栏 -->
+
+      <div class="rightNav">
+        <div>手机app</div>
+        <div>个人中心</div>
+        <div>售后服务</div>
+        <div>人工客服</div>
+        <div>购物车</div>
+        <div class="toTop">回顶部</div>
+      </div>
+
+    </div>
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var currentIndex = 0;
+    var images = document.querySelectorAll('.slider-images img');
+    var totalImages = images.length;
+
+    function changeSlide() {
+      images[currentIndex].style.display = 'none';
+      currentIndex = (currentIndex + 1) % totalImages;
+      images[currentIndex].style.display = 'block';
+    }
+
+    var interval = setInterval(changeSlide, 3000); // Change slide every 3 seconds
+
+    document.querySelector('.prev').addEventListener('click', function () {
+      clearInterval(interval);
+      currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+      images[currentIndex].style.display = 'block';
+      interval = setInterval(changeSlide, 3000);
+    });
+
+    document.querySelector('.next').addEventListener('click', function () {
+      clearInterval(interval);
+      changeSlide();
+      interval = setInterval(changeSlide, 3000);
+    });
+
+
+
+  });
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.querySelector('.toTop').addEventListener('click', scrollToTop);
+
+
+  // 
+  document.querySelector('.tab').addEventListener('mouseover', function () {
+    document.querySelector('.tabBox').style.visibility = 'visible';
+  });
+  document.querySelector('.tab').addEventListener('mouseout', function () {
+    document.querySelector('.tabBox').style.visibility = 'hidden';
+  });
+    // // 为耳机和穿戴添加点击事件
+    // document.querySelector('.erji').addEventListener('click', function () {
+    //   document.getElementById('tableBody1').style.visibility = "visible";
+    //   document.getElementById('tableBody2').style.visibility = "hidden";
+    //   document.getElementById('imgL1').style.width = "100%";
+    // });
+
+    // document.querySelector('.chuandai').addEventListener('click', function () {
+    //   document.getElementById('tableBody1').style.visibility = "hidden";
+    //   document.getElementById('tableBody2').style.visibility = "visible";
+    
+    //   document.getElementById('imgL2').style.width = "100%";
+    // });
+     // 为耳机和穿戴添加点击事件
+  document.querySelector('.erji').addEventListener('click', function () {
+    document.getElementById('tableBody1').style.display = "block";
+    document.getElementById('tableBody2').style.display = "none";
+    document.getElementById('imgL1').style.width = "100%";
+  });
+
+  document.querySelector('.chuandai').addEventListener('click', function () {
+    document.getElementById('tableBody2').style.display = "block";
+    document.getElementById('tableBody1').style.display = "none";
+    document.getElementById('imgL2').style.width = "100%";
+  });
+
+</script>
+
+</html>
